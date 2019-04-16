@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :orders, only: [:index, :new, :create]
   resources :reviews, only: [:new, :create, :edit, :update]
+  resources :order_items
+  resource :cart, only: [:show]
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'

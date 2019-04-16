@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_180321) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "cost"
+    t.decimal "cost"
     t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 2019_04_15_180321) do
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id"
     t.integer "item_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
+    t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

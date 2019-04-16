@@ -5,7 +5,16 @@
 <p>Description: <%= @item.description %></p>
 <p>Cost: $<%= @item.cost %></p>
 
-<button type="button">Add to Cart</button>
 <br>
 <br>
-<a href='/items'>Back to All Items</a>
+
+<p>
+<%= form_for @order_item do |f| %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.submit "Add to Cart" %>
+<% end %>
+</p>
+
+  <a href='/items'>Back to All Items</a>

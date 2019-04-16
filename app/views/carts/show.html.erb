@@ -1,0 +1,12 @@
+<% if @order_items.any? %>
+  <% @order_items.each do |orderitem| %>
+    <%= orderitem.item.name %>
+    <p> Cost: <%= number_to_currency orderitem.item.cost %>
+        Quantity: <%= orderitem.quantity %>
+        Total: <%= number_to_currency (orderitem.item.price * orderitem.quantity) %>
+        <% end %>
+<% else %>
+  <p> Your cart is currently empty.</p>
+<% end %>
+
+<%= link_to "Continue Shopping", items_path %>
