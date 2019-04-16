@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
 
   def new
     @user = User.new
@@ -9,8 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      redirect_to root_path
     else
+      @error = "Invalid username or password"
       render :new
     end
   end

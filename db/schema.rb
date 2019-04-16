@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_180321) do
     t.string "name"
     t.text "description"
     t.integer "cost"
-    t.text "imgage_url"
+    t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2019_04_15_180321) do
     t.integer "age"
     t.text "image_url"
     t.integer "points"
+    t.string "password"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
