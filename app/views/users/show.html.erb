@@ -1,1 +1,7 @@
-<p><%=@user.name%></p>
+<h1><%=@user.name%></h1>
+
+<img src="<%= @user.image_url %>">
+
+<p>Username: <%= current_user.username %></p>
+<br>
+<%= link_to("Back to Home", root_path) %>
