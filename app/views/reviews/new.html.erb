@@ -1,0 +1,17 @@
+<h1>Write a Review</h1>
+
+<p>
+<%= form_for @review do |f| %>
+  <strong><%= f.label :content %><br></strong>
+  <%= f.text_area :content %><br><br>
+  <strong><%= f.label :rating%><br></strong>
+  <%= f.radio_button :rating, '1' %> 1
+  <%= f.radio_button :rating, '2' %> 2
+  <%= f.radio_button :rating, '3' %> 3
+  <%= f.radio_button :rating, '4' %> 4
+  <%= f.radio_button :rating, '5' %> 5 <br><br>
+  <%= f.submit "Create Review" %>
+<% end %>
+</p>
+
+<%= redirect_to store_items_path %>
