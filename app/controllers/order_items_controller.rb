@@ -1,14 +1,22 @@
 class OrderItemsController < ApplicationController
+  before_action :authorize!
+
   def create
     @order = current_order
-    @item = @order.order_items.new(item_params)
+    @orderitem = @order.order_items.new(orderitem_params)
+    @order.user = current_user
     @order.save
     session[:order_id] = @order.id
-    redirect_to items_path
+    @item = Item.find(@orderitem.item_id)
+    if @item.bnb == true
+        redirect_to BnB_items_path(@item)
+    else
+        redirect_to store_items_path(@item)
+    end
   end
 
   private
-  def item_params
+  def orderitem_params
     params.require(:order_item).permit(:quantity, :item_id)
   end
 end
