@@ -17,4 +17,9 @@
 <% end %>
 </p>
 
-  <a href='/items'>Back to All Items</a>
+
+<% if @item.bnb == true %>
+    <%= link_to("Back to BnB", BnB_items_path(@item)) %>
+<% else %>
+    <%= link_to("Back to store", store_items_path(@item)) %>
+<% end %>
