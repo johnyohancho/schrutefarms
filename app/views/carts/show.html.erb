@@ -8,9 +8,8 @@
         Quantity: <%= orderitem.quantity %>
         Total: <%= number_to_currency (orderitem.item.cost * orderitem.quantity) %><br><br>
         <% end %>
-        <strong>Your Total: </strong><%= number_to_currency current_order%><br><br></div>
-        <%= link_to "Checkout", root_path %>
+        <strong>Your Total: </strong><%= number_to_currency current_order.total_price%><br><br></div>
+        <%= link_to "Checkout", confirmation_cart_path %>
 <% else %>
   <p> Your cart is currently empty.</p>
-  *Place link to go continue shopping here.
 <% end %>

@@ -8,10 +8,11 @@ class OrderItemsController < ApplicationController
     @order.save
     session[:order_id] = @order.id
     @item = Item.find(@orderitem.item_id)
+    flash[:success] = "Added to your cart!"
     if @item.bnb == true
-        redirect_to BnB_items_path(@item)
+      redirect_to BnB_items_path(@item)
     else
-        redirect_to store_items_path(@item)
+      redirect_to store_items_path(@item)
     end
   end
 

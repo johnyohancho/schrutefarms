@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   end
   resources :orders, only: [:index, :new, :create]
   resources :order_items
-  resource :cart, only: [:show]
+  resource :cart, only: [:show] do
+    get '/confirmation', to: 'carts#confirmation', as: 'confirmation'
+  end
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'
 
   get '/about', to: 'about#about', as: 'about'
-
 end

@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    before_action :authorize!
+
     def new
       @review = Review.new
       @item = Item.find(params[:item_id])
