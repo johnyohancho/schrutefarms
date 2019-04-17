@@ -1,11 +1,16 @@
-<% if @order_items.any? %>
+<h1>View Cart</h1>
+
+<% if @order_items.present? %>
   <% @order_items.each do |orderitem| %>
     <%= orderitem.item.name %>
-    <p> Cost: <%= number_to_currency orderitem.item.cost %>
+    <div> <img src="<%= orderitem.item.image_url %>" height= 50 width= 50>
+    <div> Price: <%= number_to_currency orderitem.item.cost %><br>
         Quantity: <%= orderitem.quantity %>
-        Total: <%= number_to_currency (orderitem.item.cost * orderitem.quantity) %>
-        Your Total: <%= number_to_currency current_order.total_price%></p>
+        Total: <%= number_to_currency (orderitem.item.cost * orderitem.quantity) %><br><br>
         <% end %>
+        <strong>Your Total: </strong><%= number_to_currency current_order%><br><br></div>
+        <%= link_to "Checkout", root_path %>
 <% else %>
   <p> Your cart is currently empty.</p>
+  *Place link to go continue shopping here.
 <% end %>

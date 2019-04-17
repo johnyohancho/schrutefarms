@@ -11,6 +11,5 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         @items = Item.all
         @order_item = current_order.order_items.new
-        @reviews = Review.all
     end
 end

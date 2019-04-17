@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/items/BnB', to: 'items#index_BnB', as: 'BnB_items'
   get '/items/store', to: 'items#index_store', as: 'store_items'
   resources :users, except: :index
-  resources :items, only: :show
+  resources :items, only: :show do
+    resources :reviews, only: [:new, :create, :edit, :update]
+  end
   resources :orders, only: [:index, :new, :create]
-  resources :reviews, only: [:new, :create, :edit, :update]
   resources :order_items
   resource :cart, only: [:show]
 

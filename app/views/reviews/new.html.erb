@@ -1,7 +1,11 @@
 <h1>Write a Review</h1>
 
+
+<img src="<%=@item.image_url %>" height=75 width=75 >
+<%= @item.name %><br>
+
 <p>
-<%= form_for @review do |f| %>
+<%= form_for @review, url: item_reviews_path(@item) do |f| %>
   <strong><%= f.label :content %><br></strong>
   <%= f.text_area :content %><br><br>
   <strong><%= f.label :rating%><br></strong>
@@ -13,5 +17,3 @@
   <%= f.submit "Create Review" %>
 <% end %>
 </p>
-
-<%= redirect_to store_items_path %>

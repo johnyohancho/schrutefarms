@@ -1,10 +1,14 @@
 class ReviewsController < ApplicationController
     def new
       @review = Review.new
+      @item = Item.find(params[:item_id])
     end
 
     def create
-      @review = Review.new(review_params)
+      @review = Review.new(content: review_params[:content], rating: review_params[:rating], item_id: params[:item_id])
+      @review.user = current_user
+      @review.save
+      redirect_to item_path(params[:item_id])
     end
 
     def edit
@@ -16,6 +20,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-      params.require(:review).permit(:content, :user_id, :item_id, :rating)
+      params.require(:review).permit(:content, :rating)
     end
 end
