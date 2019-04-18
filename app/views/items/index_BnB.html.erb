@@ -3,10 +3,10 @@
 <% end %>
 <br>
 
-<h1>All BnB Items</h1>
+<h1 style="text-align:center;">All BnB Items</h1>
 
 <% @items_bnb.each do |item| %>
-    <img src="<%= item.image_url %>" height="100" width="150"><br>
+    <img src="<%= item.image_url %>" height="200" width="250"><br>
     <%= link_to item.name, item_path(item) %><br>
     <p>Price: <%= number_to_currency item.cost %><br></p>
     <br>
