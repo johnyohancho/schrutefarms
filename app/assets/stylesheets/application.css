@@ -95,3 +95,10 @@ header::after {
    margin: 0 auto;
    width: 40%;
  }
+
+ div.containers {
+   text-align: center;
+   display: inline-block;
+   float: left;
+   width: 33.33%;
+ }
