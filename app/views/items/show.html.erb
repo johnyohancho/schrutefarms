@@ -16,6 +16,11 @@
 <% end %>
 </p>
 
+<% if flash[:notice].present? %>
+    <p style="color: green"><%= flash[:notice] %></p>
+<% end %>
+<br>
+
 <h2>Customer Reviews</h2>
 <p>
 

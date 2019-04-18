@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      @error = "Invalid username or password"
+      @user.errors.messages
       render :new
     end
   end
@@ -24,8 +24,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      @user.errors.messages
+      render :edit
+    end
   end
 
   def delete
