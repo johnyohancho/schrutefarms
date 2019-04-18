@@ -1,19 +1,23 @@
 <h1>Create a Profile</h1>
 
-<%if @error%>
-  <p style="color: red"> <%=@error%></p>
-<%end%>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <% @user.errors.full_messages.each do |msg| %>
+      <ul><li style="color: red"><%= msg %></li></ul>
+    <% end %>
+  </div>
+<% end %>
 
 <%=form_for @user do |f|%>
-<%=f.label :name%><br>
-<%=f.text_field :name%><br>
-<%=f.label :age%><br>
-<%=f.number_field :age%><br>
-<%=f.label :username%><br>
-<%=f.text_field :username%><br>
-<%=f.label :password%><br>
-<%=f.password_field :password%><br>
-<%=f.label "Upload an image (link)"%><br>
-<%=f.text_area :image_url%><br>
-<%=f.submit "Create Profile"%><br>
+  <%=f.label :name%><br>
+  <%=f.text_field :name%><br>
+  <%=f.label :age%><br>
+  <%=f.number_field :age%><br>
+  <%=f.label :username%><br>
+  <%=f.text_field :username%><br>
+  <%=f.label :password%><br>
+  <%=f.password_field :password%><br>
+  <%=f.label "Upload an image (link)"%><br>
+  <%=f.text_area :image_url%><br>
+  <%=f.submit "Create Profile"%><br>
 <%end%>

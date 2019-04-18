@@ -1,9 +1,12 @@
+
 <% if flash[:success].present? %>
     <p style="color: green"><%= flash[:success] %></p>
 <% end %>
 <br>
 
 <h1 style="text-align:center;">All BnB Items</h1>
+
+<h1>All BnB Items</h1>
 
 <% @items_bnb.each do |item| %>
     <img src="<%= item.image_url %>" height="200" width="250"><br>

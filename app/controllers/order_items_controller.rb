@@ -5,15 +5,16 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @orderitem = @order.order_items.new(orderitem_params)
     @order.user = current_user
+    @item = Item.find(@orderitem.item_id)
     @order.save
     session[:order_id] = @order.id
-    @item = Item.find(@orderitem.item_id)
-    flash[:success] = "Added to your cart!"
-    if @item.bnb == true
-      redirect_to BnB_items_path(@item)
-    else
-      redirect_to store_items_path(@item)
-    end
+    flash[:notice] = "Added to your cart!"
+    redirect_to item_path(@orderitem.item_id)
+    # if @item.bnb == true
+    #   redirect_to BnB_items_path(@item)
+    # else
+    #   redirect_to store_items_path(@item)
+    # end
   end
 
   private
