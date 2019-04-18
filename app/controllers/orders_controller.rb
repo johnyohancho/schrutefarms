@@ -1,13 +1,6 @@
 class OrdersController < ApplicationController
     def index
-        @orders = Order.all
-    end
-
-    def new
-        @order = Order.find(params[:id])
-    end
-
-    def create
+        @orders = Order.where(user_id: current_user.id, status: true ).ids
     end
 
     private

@@ -6,6 +6,7 @@ class OrderItemsController < ApplicationController
     @orderitem = @order.order_items.new(orderitem_params)
     @order.user = current_user
     @item = Item.find(@orderitem.item_id)
+    @order.status = false
     @order.save
     session[:order_id] = @order.id
     flash[:notice] = "Added to your cart!"

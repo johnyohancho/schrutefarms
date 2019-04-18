@@ -1,0 +1,21 @@
+<h1>Past Orders</h1>
+
+<% if @orders.any? %>
+    <% @orders.map do |order_id| %>
+        <% order = Order.find(order_id) %>
+        <ul>
+        ORDER ID: <%= order_id %><br><br>
+        Date: <%= order.created_at.strftime("%m-%d-%Y") %><br>
+        <p>List of Items Ordered:</p>
+        <% order.order_items.each do |order_item| %>
+            <ul>
+            <li><%= order_item.item.name %> - <%= order_item.quantity %> ct.</li>
+            </ul>
+        <% end %>
+        <br>
+        Total Price: <%= number_to_currency order.total_price %><br><br>
+        </ul>
+    <% end %>
+<% else %>
+    You do not have any past orders...
+<% end %>

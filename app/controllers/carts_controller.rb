@@ -7,6 +7,8 @@ class CartsController < ApplicationController
   end
 
   def confirmation
+    @order = Order.find(session[:order_id])
+    @order.update(status: true)
     session[:order_id] = nil
   end
 end
