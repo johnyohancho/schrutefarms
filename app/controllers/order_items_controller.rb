@@ -9,13 +9,18 @@ class OrderItemsController < ApplicationController
     @order.status = false
     @order.save
     session[:order_id] = @order.id
-    flash[:notice] = "Added to your cart!"
-    redirect_to item_path(@orderitem.item_id)
-    # if @item.bnb == true
-    #   redirect_to BnB_items_path(@item)
-    # else
-    #   redirect_to store_items_path(@item)
-    # end
+    if @order.errors.present?
+      flash[:alert] = "Need to add quantity!"
+      redirect_to item_path(@orderitem.item_id)
+    else
+      flash[:notice] = "Added to your cart!"
+      redirect_to item_path(@orderitem.item_id)
+    end
+  end
+
+  def destroy
+    OrderItem.destroy(params[:id])
+    redirect_to cart_path
   end
 
   private

@@ -9,7 +9,7 @@
         <p>List of Items Ordered:</p>
         <% order.order_items.each do |order_item| %>
             <ul>
-            <li><%= order_item.item.name %> - <%= order_item.quantity %> ct.</li>
+            <li><img src="<%= order_item.item.image_url %>" height="50" width="50"> <%= order_item.item.name %> - <%= order_item.quantity %> ct.</li>
             </ul>
         <% end %>
         <br>
