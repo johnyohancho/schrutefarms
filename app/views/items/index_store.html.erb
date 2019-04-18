@@ -3,11 +3,13 @@
 <% end %>
 <br>
 
-<h1 style="text-align:center;">All Store Items</h1>
+<h1 style="text-align:center;">All Store Items</h1><br>
 
 <% @items_store.each do |item| %>
-    <img src="<%= item.image_url %>" height="200" width="250"><br>
+<div class="containers">
+    <a href="<%=item_path(item)%>"><img src="<%= item.image_url %>" height="200" width="250"></a><br>
     <%= link_to item.name, item_path(item) %><br>
     <p>Price: <%= number_to_currency item.cost %><br></p>
     <br>
+</div>
 <% end %>
