@@ -90,3 +90,8 @@ header::after {
  nav a:hover::before {
      width: 100%
  }
+
+ .center {
+   margin: 0 auto;
+   width: 40%;
+ }

@@ -2,7 +2,7 @@
 <img src="<%= @item.image_url %>" height="200" width="300">
 
 <p>Description: <%= @item.description %></p>
-<p>Cost: $<%= @item.cost %></p>
+<p>Cost: $<%= @item.cost %>0</p>
 
 <br>
 <br>
@@ -11,7 +11,7 @@
 <%= form_for @order_item do |f| %>
   <%= f.hidden_field :item_id, value: @item.id %>
   <%= f.label :quantity %>
-  <%= f.number_field :quantity %>
+  <%= f.number_field :quantity, min: 1%>
   <%= f.submit "Add to Cart" %>
 <% end %>
 </p>
