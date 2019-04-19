@@ -1,0 +1,19 @@
+<h1>Edit a Review</h1>
+
+
+<img src="<%=@item.image_url %>" height=75 width=75 >
+<%= @item.name %><br>
+
+<p>
+<%= form_for @review, url: item_review_path(id: @review.id, item_id: @review.item_id) do |f| %>
+  <strong><%= f.label :content %><br></strong>
+  <%= f.text_area :content %><br><br>
+  <strong><%= f.label :rating%><br></strong>
+  <%= f.radio_button :rating, '1' %> 1
+  <%= f.radio_button :rating, '2' %> 2
+  <%= f.radio_button :rating, '3' %> 3
+  <%= f.radio_button :rating, '4' %> 4
+  <%= f.radio_button :rating, '5' %> 5 <br><br>
+  <%= f.submit "Update" %>
+<% end %>
+</p>

@@ -32,7 +32,15 @@
     Review by: <%= review.user.username %> <br>
     <%= review.created_at.strftime("%m-%d-%Y") %><br>
     Content: <%= review.content %><br>
-    <%= review.rating %> out of 5 stars<br><br>
+    <%= review.rating %> out of 5 stars
+    <p><%= form_for(review, url: edit_item_review_path(id: review.id, item_id: review.item_id), method: :get) do |f| %>
+      <%= f.submit "Edit" %>
+    <% end %>
+    <% if review.user_id == current_user.id %>
+      <%= form_for(review, url: item_review_path(id: review.id, item_id: review.item_id), method: :delete) do |f| %>
+        <%= f.submit "Delete" %>
+      <% end %>
+    <% end %></p>
   <% end %>
 <% elsif  @item.reviews.any? && !current_user %>
   You must be logged in to leave a review.<br><br>
