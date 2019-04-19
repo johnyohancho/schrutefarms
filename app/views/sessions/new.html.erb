@@ -2,9 +2,12 @@
   <p style="color: red"> <%=@error%></p>
 <%end%>
 
+<div class="padding">
+<h1 class="center" style="text-align:center;">Wer bist du?</h1>
 <%=form_tag(login_path) do%>
-<h3 align=center><%=label_tag("Username")%> <%=text_field_tag :username%></h1>
+<h3 align=center><%=label_tag("Username")%> <%=text_field_tag :username%></h3>
 <h3 align=center><%=label_tag("Password")%> <%=password_field_tag :password_digest %></h3>
-<p align=center>Not a member? <%= link_to "sign up", new_user_path %></p>
-<p align=center><%=submit_tag('login')%></p>
+<p align=center>Not a member? <%= link_to "Sign Up", new_user_path %></p>
+<p align=center><%=submit_tag('Login')%></p>
 <%end%>
+</div>

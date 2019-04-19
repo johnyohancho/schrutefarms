@@ -114,3 +114,7 @@ header::after {
 .circle {
   border-radius: 50%;
 }
+
+.padding{
+  padding: 170px;
+}
