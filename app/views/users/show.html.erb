@@ -1,16 +1,14 @@
-<h1><%=@user.name%></h1>
-<%= form_tag(orders_path, :method => :get ) do %>
-    <%= submit_tag "View Order History" %>
-<% end %>
-<br>
-<img src="<%= @user.image_url %>">
+<h1 align=left><%=@user.name%></h1>
+<p align=left>Username: <%= @user.username %></p>
+<p align=left>Name: <%= @user.name %></p>
+<p align=left>Age: <%= @user.age %></p>
+<p aling=left><img src="<%= @user.image_url %>"><p>
 
-<p>Username: <%= @user.username %></p>
-<br>
-<p>Name: <%= @user.name %></p>
-<p>Age: <%= @user.age %></p>
+<%= form_tag(orders_path, :method => :get ) do %>
+    <p align=left><%= submit_tag "View Order History" %></p>
+<% end %>
 
 <%= form_tag(edit_user_path, :method => :get ) do %>
-    <%= submit_tag "Edit Profile" %>
+    <p align=left><%= submit_tag "Edit Profile" %></p>
 <% end %>
 

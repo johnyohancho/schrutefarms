@@ -21,6 +21,10 @@
     font-weight: 500;
 }
 
+body p {
+    margin-right: 5%;
+}
+
 header {
     background: #FEFEFE;
 }
