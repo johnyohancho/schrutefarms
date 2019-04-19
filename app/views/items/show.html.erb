@@ -29,12 +29,13 @@
 <% if @item.reviews.any? && current_user %>
 <%= link_to "Leave a review", new_item_review_path(@item) %><br><br>
   <% @item.reviews.reverse.each do |review| %>
-    <strong>Review ID:</strong> <%= review.id %><br>
-    <strong>Review by:</strong> <%= review.user.username %> <br>
-    <strong>Date Created: </strong><%= review.created_at.strftime("%m-%d-%Y") %><br>
-    <strong>Content:</strong> <%= review.content %><br>
-    <strong>Rating:</strong> <%= review.rating %> out of 5 stars
+    <div>
+    <p><strong>Review by:</strong> <%= review.user.username %></p>
+    <p><strong>Date Created: </strong><%= review.created_at.strftime("%m-%d-%Y") %></p>
+    <p><strong>Content:</strong> <%= review.content %></p>
+    <p><strong>Rating:</strong> <%= review.rating %> out of 5 stars</p>
     <%= form_for(review, url: edit_item_review_path(id: review.id, item_id: review.item_id), method: :get) do |f| %>
+    </div>
       <p><%= f.submit "Edit" %></p>
     <% end %>
     <% if review.user_id == current_user.id %>
@@ -42,6 +43,8 @@
         <p><%= f.submit "Delete" %></p>
       <% end %>
     <% end %>
+    </div>
+    <br>
   <% end %>
 <% elsif  @item.reviews.any? && !current_user %>
   You must be logged in to leave a review.<br><br>
