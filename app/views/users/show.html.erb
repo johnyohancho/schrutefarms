@@ -1,3 +1,6 @@
+<%= form_for @user, method: :delete do |f| %>
+    <h2 align=right><%= f.submit "Delete" %></h2>
+<% end %> 
 <br>
 <div style="text-align:center;">
 <h1 class="center">Guten Tag, <%= @user.name%>!</h1>

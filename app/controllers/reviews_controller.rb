@@ -17,10 +17,25 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-      byebug
+      @review = Review.find(params[:id])
+      @item = Item.find(params[:item_id])
     end
 
     def update
+      @review = Review.find(params[:id])
+      @item = Item.find(params[:item_id])
+      if @review.update(review_params)
+        redirect_to item_path(@review.item_id)
+      else
+        render "/items/#{review.id}/reviews/#{item.id}/edit"
+      end
+    end
+
+    def destroy
+      @review = Review.find(params[:id])
+      @item = Item.find(params[:item_id])
+      @review.destroy
+      redirect_to item_path(@item)
     end
 
     private

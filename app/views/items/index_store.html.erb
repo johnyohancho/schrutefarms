@@ -9,7 +9,7 @@
 <div class="containers">
     <a href="<%=item_path(item)%>"><img src="<%= item.image_url %>" height="200" width="250"></a><br>
     <%= link_to item.name, item_path(item) %><br>
-    <p>Price: <%= number_to_currency item.cost %><br></p>
+    <p><strong>Price:</strong> <%= number_to_currency item.cost %><br></p>
     <br>
 </div>
 <% end %>

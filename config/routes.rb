@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/items/store', to: 'items#index_store', as: 'store_items'
   resources :users, except: :index
   resources :items, only: :show do
-    resources :reviews, only: [:new, :create, :edit, :update]
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :orders, only: [:index, :new, :create]
   resources :order_items
