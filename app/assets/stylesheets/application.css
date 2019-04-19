@@ -102,3 +102,7 @@ header::after {
    float: left;
    width: 33.33%;
  }
+
+ .description {
+   width: 25%;
+ }
