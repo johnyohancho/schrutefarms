@@ -1,0 +1,30 @@
+<h1>Edit a Review</h1>
+
+
+<% @item = Item.find(params[:item_id]) %>
+
+<% if @errors.present? %>
+  <div id="error explanation">
+    <% @errors.each do |msg| %>
+    <ul style="color: red"><%= msg %></ul>
+    <% end %>
+  </div>
+<% end %>
+
+<img src="<%=@item.image_url %>" height=75 width=75 >
+<%= @item.name %><br>
+
+<p>
+<% byebug %>
+<%= form_for @review, url: item_reviews_path(@item) do |f| %>
+  <strong><%= f.label :content %><br></strong>
+  <%= f.text_area :content %><br><br>
+  <strong><%= f.label :rating%><br></strong>
+  <%= f.radio_button :rating, '1' %> 1
+  <%= f.radio_button :rating, '2' %> 2
+  <%= f.radio_button :rating, '3' %> 3
+  <%= f.radio_button :rating, '4' %> 4
+  <%= f.radio_button :rating, '5' %> 5 <br><br>
+  <%= f.submit "Edit Review" %>
+<% end %>
+</p>
