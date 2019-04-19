@@ -52,6 +52,10 @@
     <br>
   <% end %>
 <% else %>
-  There aren't any reviews yet. Be the first to <%= link_to "leave a review", new_item_review_path(@item) %>!
+  <% if current_user %>
+    There aren't any reviews yet. Be the first to <%= link_to "leave a review", new_item_review_path(@item) %>!
+  <% else %>
+    You must be logged in to leave a review.
+  <% end %>
 <% end %>
 </p>

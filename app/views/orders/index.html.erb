@@ -4,8 +4,8 @@
     <% @orders.map do |order_id| %>
         <% order = Order.find(order_id) %>
         <ul>
-        ORDER ID: <%= order_id %><br><br>
-        Date: <%= order.created_at.strftime("%m-%d-%Y") %><br>
+        <strong>ORDER ID: <%= order_id %></strong><br><br>
+        <strong>Date:</strong> <%= order.created_at.strftime("%m-%d-%Y") %><br>
         <p>List of Items Ordered:</p>
         <% order.order_items.each do |order_item| %>
             <ul>
@@ -13,7 +13,7 @@
             </ul>
         <% end %>
         <br>
-        Total Price: <%= number_to_currency order.total_price %><br><br>
+        <strong>Total Price:</strong> <%= number_to_currency order.total_price %><br><br>
         </ul>
     <% end %>
 <% else %>

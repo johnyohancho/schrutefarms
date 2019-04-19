@@ -32,9 +32,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
-    @user = User.find(params[:id])
+  def destroy
+    @user = current_user
+    session[:user_id] = nil
     @user.destroy
+    redirect_to root_path
   end
 
   private
