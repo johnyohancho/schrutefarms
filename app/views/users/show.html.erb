@@ -1,14 +1,16 @@
-<h1 align=left><%=@user.name%></h1>
-<p align=left>Username: <%= @user.username %></p>
-<p align=left>Name: <%= @user.name %></p>
-<p align=left>Age: <%= @user.age %></p>
-<p aling=left><img src="<%= @user.image_url %>"><p>
+<br>
+<div style="text-align:center;">
+<h1 class="center">Guten Tag, <%= @user.name%>!</h1>
+<p><img class="circle" src="<%= @user.image_url %>" height=250 width=250><p>
+<p><strong>Username: </strong><%= @user.username %></p>
+<p><strong>Name: </strong><%= @user.name %></p>
+<p><strong>Age: </strong><%= @user.age %></p>
+</div>
 
 <%= form_tag(orders_path, :method => :get ) do %>
-    <p align=left><%= submit_tag "View Order History" %></p>
+    <p style="text-align:center;"><%= submit_tag "View Order History" %></p>
 <% end %>
 
 <%= form_tag(edit_user_path, :method => :get ) do %>
-    <p align=left><%= submit_tag "Edit Profile" %></p>
+    <p style="text-align:center;"><%= submit_tag "Edit Profile" %></p>
 <% end %>
-

@@ -110,3 +110,7 @@ header::after {
  .description {
    width: 25%;
  }
+
+.circle {
+  border-radius: 50%;
+}
