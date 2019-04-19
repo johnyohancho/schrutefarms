@@ -37,6 +37,9 @@
       </div>
     </header>
 
+    <% if current_user.present? %>
+      <p align=right>Signed In: <strong><%= current_user.username %></strong></p>
+    <% end %>
 
     <%= yield %>
   </body>
