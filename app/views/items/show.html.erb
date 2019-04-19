@@ -29,11 +29,11 @@
 <% if @item.reviews.any? && current_user %>
 <%= link_to "Leave a review", new_item_review_path(@item) %><br><br>
   <% @item.reviews.reverse.each do |review| %>
-    Review ID: <%= review.id %><br>
-    Review by: <%= review.user.username %> <br>
-    <%= review.created_at.strftime("%m-%d-%Y") %><br>
-    Content: <%= review.content %><br>
-    <%= review.rating %> out of 5 stars
+    <strong>Review ID:</strong> <%= review.id %><br>
+    <strong>Review by:</strong> <%= review.user.username %> <br>
+    <strong>Date Created: </strong><%= review.created_at.strftime("%m-%d-%Y") %><br>
+    <strong>Content:</strong> <%= review.content %><br>
+    <strong>Rating:</strong> <%= review.rating %> out of 5 stars
     <%= form_for(review, url: edit_item_review_path(id: review.id, item_id: review.item_id), method: :get) do |f| %>
       <p><%= f.submit "Edit" %></p>
     <% end %>

@@ -5,15 +5,15 @@
         <% order = Order.find(order_id) %>
         <ul>
         <strong>ORDER ID: <%= order_id %></strong><br><br>
-        <strong>Date:</strong> <%= order.created_at.strftime("%m-%d-%Y") %><br>
-        <p>List of Items Ordered:</p>
+        <strong>Date:</strong> <%= order.created_at.strftime("%m-%d-%Y") %><br><br>
+        <strong>List of Items Ordered:</strong>
         <% order.order_items.each do |order_item| %>
             <ul>
             <li><img src="<%= order_item.item.image_url %>" height="50" width="50"> <%= order_item.item.name %> - <%= order_item.quantity %> ct.</li>
             </ul>
         <% end %>
         <br>
-        <strong>Total Price:</strong> <%= number_to_currency order.total_price %><br><br>
+        <strong>Total Price:</strong> <%= number_to_currency order.total_price %><br><br><br>
         </ul>
     <% end %>
 <% else %>

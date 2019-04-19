@@ -2,10 +2,10 @@
 
 <% if @order_items.present? %>
   <% @order_items.each do |orderitem| %>
-    <p align=left><%= orderitem.item.name %><br></p>
+    <p align=left><strong><%= orderitem.item.name %></strong><br></p>
     <p align=left><img src="<%= orderitem.item.image_url %>" height= 50 width= 50><br></p>
-    <p align=left>Quantity: <%= orderitem.quantity %><br></p>
-    <p align=left>Price: <%= number_to_currency (orderitem.item.cost * orderitem.quantity) %><br></p>
+    <p align=left><strong>Quantity:</strong> <%= orderitem.quantity %><br></p>
+    <p align=left><strong>Price:</strong> <%= number_to_currency (orderitem.item.cost * orderitem.quantity) %><br></p>
     <%= form_tag(order_item_path(orderitem), :method => :delete) do %>
       <p align=left><%= submit_tag "Remove" %></p>
     <% end %>
